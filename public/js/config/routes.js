@@ -46,4 +46,20 @@ export default ['$stateProvider', '$urlRouterProvider', '$locationProvider', ($s
             }],
             template: "{{myfriends}}"
         })
+        .state('algo2', {
+            url: '/algo2',
+            controller: ['$scope', function($scope){
+                function foldTo(distance) {
+                    let fold = 0;
+                    if(distance > 0){
+                        while (Math.pow(2, fold) * 0.0001 < distance)
+                            fold++;
+                            return fold;
+                    }
+                    return null;
+                }
+                $scope.dist= foldTo(14928418679754190000);
+            }],
+            template: "{{dist}}"
+        })
 }]
